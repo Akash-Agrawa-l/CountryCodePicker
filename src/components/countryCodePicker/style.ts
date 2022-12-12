@@ -11,6 +11,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     aspectRatio: 1 / 1.7,
     borderRadius: 18,
+    zIndex: 10,
+    elevation: 10,
   },
   modalBackgroundStyle: {
     // justifyContent: 'center',
@@ -43,10 +45,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: '#77777733',
   },
-  textInputStyle: {
+  textInputContainerStyle: {
     borderRadius: 16,
     borderWidth: 1,
     borderColor: '#444444',
+    paddingVertical: '2.3%',
+    paddingHorizontal: '4.4%',
+    flexDirection: 'row',
+  },
+  textInputStyle: {
+    backgroundColor: '#FF0000',
     paddingVertical: '2.3%',
     paddingHorizontal: '4.4%',
   },

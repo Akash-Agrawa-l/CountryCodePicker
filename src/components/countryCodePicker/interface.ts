@@ -3,21 +3,21 @@ import { ImageStyle, StyleProp, TextStyle, ViewStyle } from "react-native";
 
 export interface countryDetailsProps{
     name: string,
-    country_code: string,
     code: string,
     image: string,
+    country_code: string,
 }
 
 export interface Props{
     isVisible: boolean,
-    onSelect?: (val: countryDetailsProps)=>void,
-    renderListItem?: (item:countryDetailsProps,index: number,)=>React.ReactElement,
-    contentContainerStyle?: StyleProp<ViewStyle>,
-    onBackDropPress: ()=>void,
+    placeholder?: string,
     showSearchBar?: boolean,
-    flagImageStyle?: StyleProp<ImageStyle>,
+    onBackDropPress: ()=>void,
     textStyle?: StyleProp<TextStyle>,
-    placeholder: string,
+    flagImageStyle?: StyleProp<ImageStyle>,
+    onSelect?: (val: countryDetailsProps)=>void,
+    contentContainerStyle?: StyleProp<ViewStyle>,
+    renderListItem?: (item:countryDetailsProps,index: number,)=>React.ReactElement,
 }
 
 export interface renderItemProps{
