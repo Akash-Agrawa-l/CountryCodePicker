@@ -11,6 +11,7 @@ import React from 'react';
 import styles from './style';
 import {Props, renderItemProps} from './interface';
 import {_handleData} from './functions';
+import images from './images';
 
 export default function CountryCodePicker(props: Props) {
   const {
@@ -62,6 +63,7 @@ export default function CountryCodePicker(props: Props) {
     return (
       <View style={styles.headerContainerStyle}>
         <View style={styles.textInputContainerStyle} >
+          <Image source={images.SEARCH_ICON} style={styles.searchIconStyle} />
         <TextInput
           placeholder={placeholder ? placeholder : "Search..."}
           style={styles.textInputStyle}
