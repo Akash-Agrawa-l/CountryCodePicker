@@ -57,10 +57,14 @@ const styles = StyleSheet.create({
   searchIconStyle: {width: '6.5%', aspectRatio: 1/1,tintColor: '#808080',resizeMode: 'contain',},
   textInputStyle: {
     color: '#000000',
-    paddingVertical: '2.3%',
+    paddingVertical: Platform.OS === 'ios' ? '2.3%' : 0,
     paddingHorizontal: '4.4%',
-    width: '83%',
+    width: '87.5%',
   },
+  crossButton: {
+    width: '5%', aspectRatio: 1/1,
+  },
+  crossIconStyle: {width: '100%',height: '100%',resizeMode: 'contain',},
   listContainerStyle: {height: '92%', flexDirection: 'row'},
 });
 
