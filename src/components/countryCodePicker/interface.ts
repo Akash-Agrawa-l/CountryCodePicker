@@ -17,6 +17,7 @@ export interface Props{
     showSearchBar?: boolean,
     flagImageStyle?: StyleProp<ImageStyle>,
     textStyle?: StyleProp<TextStyle>,
+    placeholder: string,
 }
 
 export interface renderItemProps{

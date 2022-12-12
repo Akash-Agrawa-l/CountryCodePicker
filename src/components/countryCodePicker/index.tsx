@@ -22,6 +22,7 @@ export default function CountryCodePicker(props: Props) {
     showSearchBar = true,
     flagImageStyle,
     textStyle,
+    placeholder
   } = props;
 
   const [searchText, setSearchText] = React.useState('');
@@ -61,7 +62,7 @@ export default function CountryCodePicker(props: Props) {
     return (
       <View style={styles.headerContainerStyle}>
         <TextInput
-          placeholder="Search..."
+          placeholder={placeholder ? placeholder : "Search..."}
           style={styles.textInputStyle}
           returnKeyType="search"
           value={searchText}
