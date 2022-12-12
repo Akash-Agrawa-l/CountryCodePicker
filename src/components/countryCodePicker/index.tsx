@@ -61,6 +61,7 @@ export default function CountryCodePicker(props: Props) {
   const listHeader = () => {
     return (
       <View style={styles.headerContainerStyle}>
+        <View style={styles.textInputContainerStyle} >
         <TextInput
           placeholder={placeholder ? placeholder : "Search..."}
           style={styles.textInputStyle}
@@ -70,6 +71,7 @@ export default function CountryCodePicker(props: Props) {
             setSearchText(text);
           }}
         />
+        </View>
       </View>
     );
   };
@@ -81,7 +83,7 @@ export default function CountryCodePicker(props: Props) {
         style={styles.modalBackgroundStyle}
         onPress={_handleBackDrop}
       >
-        <View style={[styles.containerStyle, contentContainerStyle]}>
+        <TouchableOpacity activeOpacity={1} style={[styles.containerStyle, contentContainerStyle]}>
           {showSearchBar ? listHeader() : null}
           <View style={styles.listContainerStyle}>
             <FlatList
@@ -94,7 +96,7 @@ export default function CountryCodePicker(props: Props) {
               windowSize={5}
               />
           </View>
-        </View>
+        </TouchableOpacity>
       </TouchableOpacity>
     </Modal>
   );
