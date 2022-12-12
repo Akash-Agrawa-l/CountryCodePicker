@@ -73,6 +73,9 @@ export default function CountryCodePicker(props: Props) {
             setSearchText(text);
           }}
         />
+        <TouchableOpacity style={styles.crossButton} activeOpacity={0.8} onPress={_handleBackDrop} >
+          <Image source={images.CROSS_ICON} style={styles.crossIconStyle} />
+          </TouchableOpacity>
         </View>
       </View>
     );
