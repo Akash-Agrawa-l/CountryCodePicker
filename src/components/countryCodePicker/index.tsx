@@ -23,11 +23,15 @@ export default function CountryCodePicker(props: Props) {
     showSearchBar = true,
     flagImageStyle,
     textStyle,
-    placeholder
+    placeholder,
   } = props;
 
   const [searchText, setSearchText] = React.useState('');
   const listRef = React.useRef<any>(null);
+
+  const _clear = () => {
+    setSearchText('');
+  };
 
   const _handleBackDrop = () => {
     setSearchText('');
@@ -62,19 +66,33 @@ export default function CountryCodePicker(props: Props) {
   const listHeader = () => {
     return (
       <View style={styles.headerContainerStyle}>
-        <View style={styles.textInputContainerStyle} >
+        <View style={styles.textInputContainerStyle}>
           <Image source={images.SEARCH_ICON} style={styles.searchIconStyle} />
-        <TextInput
-          placeholder={placeholder ? placeholder : "Search..."}
-          style={styles.textInputStyle}
-          returnKeyType="search"
-          value={searchText}
-          onChangeText={text => {
-            setSearchText(text);
-          }}
-        />
-        <TouchableOpacity style={styles.crossButton} activeOpacity={0.8} onPress={_handleBackDrop} >
-          <Image source={images.CROSS_ICON} style={styles.crossIconStyle} />
+          <TextInput
+            placeholder={placeholder ? placeholder : 'Search...'}
+            style={styles.textInputStyle}
+            returnKeyType="search"
+            value={searchText}
+            onChangeText={text => {
+              setSearchText(text);
+            }}
+          />
+          {searchText.length > 0 ? (
+            <TouchableOpacity
+              style={styles.removeButton}
+              activeOpacity={0.8}
+              onPress={_clear}>
+              <Image
+                source={images.REMOVE_ICON}
+                style={styles.crossIconStyle}
+              />
+            </TouchableOpacity>
+          ) : null}
+          <TouchableOpacity
+            style={styles.crossButton}
+            activeOpacity={0.8}
+            onPress={_handleBackDrop}>
+            <Image source={images.CROSS_ICON} style={styles.crossIconStyle} />
           </TouchableOpacity>
         </View>
       </View>
@@ -86,9 +104,10 @@ export default function CountryCodePicker(props: Props) {
       <TouchableOpacity
         activeOpacity={1}
         style={styles.modalBackgroundStyle}
-        onPress={_handleBackDrop}
-      >
-        <TouchableOpacity activeOpacity={1} style={[styles.containerStyle, contentContainerStyle]}>
+        onPress={_handleBackDrop}>
+        <TouchableOpacity
+          activeOpacity={1}
+          style={[styles.containerStyle, contentContainerStyle]}>
           {showSearchBar ? listHeader() : null}
           <View style={styles.listContainerStyle}>
             <FlatList
@@ -99,7 +118,7 @@ export default function CountryCodePicker(props: Props) {
               keyboardShouldPersistTaps={'handled'}
               maxToRenderPerBatch={20}
               windowSize={5}
-              />
+            />
           </View>
         </TouchableOpacity>
       </TouchableOpacity>
