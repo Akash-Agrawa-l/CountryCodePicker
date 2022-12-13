@@ -61,8 +61,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: '4.4%',
     width: '87.5%',
   },
-  crossButton: {
+  removeButton: {
     width: '5%', aspectRatio: 1/1,
+    marginLeft: '-6%',
+  },
+  crossButton: {
+    width: '5%', aspectRatio: 1/1,marginLeft: '3%',
   },
   crossIconStyle: {width: '100%',height: '100%',resizeMode: 'contain',},
   listContainerStyle: {height: '92%', flexDirection: 'row'},
