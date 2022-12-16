@@ -46,7 +46,10 @@ export default function CountryCodePicker(props: Props) {
         <TouchableOpacity
           activeOpacity={0.9}
           style={styles.listItem}
-          onPress={() =>{ _handleBackDrop(); (onSelect ? onSelect(item) : null)}}>
+          onPress={() => {
+            _handleBackDrop();
+            onSelect ? onSelect(item) : null;
+          }}>
           <Image
             source={{uri: item.image}}
             style={[styles.flagImageStyle, flagImageStyle]}
@@ -100,7 +103,7 @@ export default function CountryCodePicker(props: Props) {
   };
 
   return (
-    <Modal visible={isVisible} transparent>
+    <Modal visible={isVisible} animationType={'slide'} transparent>
       <TouchableOpacity
         activeOpacity={1}
         style={styles.modalBackgroundStyle}
