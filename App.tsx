@@ -19,6 +19,7 @@ export default function App() {
         onBackDropPress={function (): void {
           setVisible(false);
         }}
+        contentContainerStyle={{marginTop: 'auto',width: '100%',}}
       />
     </SafeAreaView>
   );
