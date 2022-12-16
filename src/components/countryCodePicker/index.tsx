@@ -46,7 +46,7 @@ export default function CountryCodePicker(props: Props) {
         <TouchableOpacity
           activeOpacity={0.9}
           style={styles.listItem}
-          onPress={() => (onSelect ? onSelect(item) : null)}>
+          onPress={() =>{ _handleBackDrop(); (onSelect ? onSelect(item) : null)}}>
           <Image
             source={{uri: item.image}}
             style={[styles.flagImageStyle, flagImageStyle]}
