@@ -1,7 +1,6 @@
 import {
   FlatList,
   Image,
-  Text,
   TextInput,
   TouchableOpacity,
   View,
@@ -9,9 +8,10 @@ import {
 } from 'react-native';
 import React from 'react';
 import styles from './style';
-import {Props, renderItemProps} from './interface';
+import {countryDetailsProps, Props, renderItemProps} from './interface';
 import {_handleData} from './functions';
 import images from './images';
+import ListCard from './listCard';
 
 export default function CountryCodePicker(props: Props) {
   const {
@@ -21,8 +21,6 @@ export default function CountryCodePicker(props: Props) {
     contentContainerStyle,
     onBackDropPress,
     showSearchBar = true,
-    flagImageStyle,
-    textStyle,
     placeholder,
   } = props;
 
@@ -38,30 +36,17 @@ export default function CountryCodePicker(props: Props) {
     onBackDropPress();
   };
 
+  const onPress=(data:countryDetailsProps)=>{
+    _handleBackDrop();
+      onSelect ? onSelect(data) : null;
+  }
+
   const renderItem = ({item, index}: renderItemProps) => {
     if (renderListItem) {
       return renderListItem(item, index);
     } else {
       return (
-        <TouchableOpacity
-          activeOpacity={0.9}
-          style={styles.listItem}
-          onPress={() => {
-            _handleBackDrop();
-            onSelect ? onSelect(item) : null;
-          }}>
-          <Image
-            source={{uri: item.image}}
-            style={[styles.flagImageStyle, flagImageStyle]}
-          />
-          <Text style={[styles.countryCodeStyle, textStyle]}>
-            {item.country_code}
-          </Text>
-          <View style={styles.seperator} />
-          <Text numberOfLines={3} style={[styles.countryNameStyle, textStyle]}>
-            {item.name}
-          </Text>
-        </TouchableOpacity>
+        <ListCard data={item} onPress={onPress} />
       );
     }
   };

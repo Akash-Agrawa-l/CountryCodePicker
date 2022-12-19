@@ -4,6 +4,10 @@ import CountryCodePicker from './src/components/countryCodePicker';
 
 export default function App() {
   const [visible, setVisible] = React.useState(false);
+  const [data,setData] = React.useState({
+    countryCode: '',
+  })
+  console.log(data)
 
   return (
     <SafeAreaView>
@@ -20,6 +24,9 @@ export default function App() {
           setVisible(false);
         }}
         contentContainerStyle={{marginTop: 'auto',width: '100%',}}
+        onSelect={(val)=>{
+          setData({countryCode: val.country_code,})
+        }}
       />
     </SafeAreaView>
   );
