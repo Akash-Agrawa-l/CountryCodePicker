@@ -8,6 +8,7 @@ const ListCard = ({
     textStyle,
     flagImageStyle,
     onPress,
+    seperatorStyle
 }:listCardProps) => {
   return (
     <TouchableOpacity
@@ -23,7 +24,7 @@ const ListCard = ({
     <Text style={[styles.countryCodeStyle, textStyle]}>
       {data.country_code}
     </Text>
-    <View style={styles.seperator} />
+    <View style={[styles.seperator,seperatorStyle]} />
     <Text numberOfLines={3} style={[styles.countryNameStyle, textStyle]}>
       {data.name}
     </Text>
