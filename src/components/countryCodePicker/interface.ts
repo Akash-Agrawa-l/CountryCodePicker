@@ -13,8 +13,6 @@ export interface Props{
     placeholder?: string,
     showSearchBar?: boolean,
     onBackDropPress: ()=>void,
-    textStyle?: StyleProp<TextStyle>,
-    flagImageStyle?: StyleProp<ImageStyle>,
     onSelect?: (val: countryDetailsProps)=>void,
     contentContainerStyle?: StyleProp<ViewStyle>,
     renderListItem?: (item:countryDetailsProps,index: number,)=>React.ReactElement,
@@ -23,4 +21,11 @@ export interface Props{
 export interface renderItemProps{
     item: countryDetailsProps,
     index: number,
+}
+
+export interface listCardProps{
+    data: countryDetailsProps,
+    textStyle?: StyleProp<TextStyle>,
+    flagImageStyle?: StyleProp<ImageStyle>,
+    onPress?: (val: countryDetailsProps)=>void,
 }
