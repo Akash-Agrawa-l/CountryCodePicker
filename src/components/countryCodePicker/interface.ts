@@ -29,4 +29,5 @@ export interface listCardProps{
     flagImageStyle?: StyleProp<ImageStyle>,
     onPress?: (val: countryDetailsProps)=>void,
     seperatorStyle?: StyleProp<ViewStyle>,
+    containerStyle?: StyleProp<ViewStyle>,
 }

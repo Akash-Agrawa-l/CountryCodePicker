@@ -8,12 +8,13 @@ const ListCard = ({
     textStyle,
     flagImageStyle,
     onPress,
-    seperatorStyle
+    seperatorStyle,
+    containerStyle
 }:listCardProps) => {
   return (
     <TouchableOpacity
     activeOpacity={0.9}
-    style={styles.listItem}
+    style={[styles.listItem,containerStyle]}
     onPress={() => {
       onPress ? onPress(data) : null
     }}>
